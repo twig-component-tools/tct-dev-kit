@@ -1,0 +1,6 @@
+twig:
+    default_path: '%kernel.project_dir%/assets/components'
+    paths:
+        'assets/components': components
+    strict_variables: false
+    file_name_pattern: [ '*.twig' ]

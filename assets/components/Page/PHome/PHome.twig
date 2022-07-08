@@ -1,0 +1,64 @@
+{% extends '@components/Template/TBase/TBase.twig' %}
+
+{% set variable = 'YES' %}
+
+{% set deeplyNestedTest = 'This text comes from high above.' %}
+
+{% block page %}
+  <OSection>
+    <block name="header">
+      <h1>Welcome to the TCT Dev Kit</h1>
+    </block>
+
+    <block name="main">
+      Something outside of {% if true %} shit {% endif %}
+      <p>This project contains an up to date symfony installation with a git submodule to develop the TCT Bundle.</p>
+      <MSearchForm has-button/>
+    </block>
+
+    <block name="footer">
+      <a href="https://github.com/twig-component-tools">GitHub</a>
+    </block>
+  </OSection>
+
+  <OSection theme="dark" url="{{ url('home') }}">
+    <block name="header">
+      <h2>Nested Sections</h2>
+    </block>
+
+    <block name="main">
+      <OSection>
+        <block name="header">
+          <h3>Level 1</h3>
+        </block>
+
+        <block name="main">
+          <p>This section is nested within another section.</p>
+          <p>{{ deeplyNestedTest }}</p>
+
+          <OSection theme="red">
+            <block name="header">
+              <h4>Level 2</h4>
+            </block>
+
+            <block name="main">
+              <p>This section is nested within another section.</p>
+              <p>{{ deeplyNestedTest }}</p>
+
+              <OSection theme="blue">
+                <block name="header">
+                  <h5>Level 3</h5>
+                </block>
+
+                <block name="main">
+                  <p>This section is nested within another section.</p>
+                  <p>{{ deeplyNestedTest }}</p>
+                </block>
+              </OSection>
+            </block>
+          </OSection>
+        </block>
+      </OSection>
+    </block>
+  </OSection>
+{% endblock page %}

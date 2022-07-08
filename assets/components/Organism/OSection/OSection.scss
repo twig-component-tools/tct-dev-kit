@@ -1,0 +1,18 @@
+.OSection {
+  padding: 1rem;
+
+  &.-dark {
+    background: #181818;
+    color: #dedede;
+  }
+
+  &.-red {
+    background: #402020;
+    color: #dedede;
+  }
+
+  &.-blue {
+    background: #204040;
+    color: #dedede;
+  }
+}

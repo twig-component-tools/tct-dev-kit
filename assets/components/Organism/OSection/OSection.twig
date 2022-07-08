@@ -1,0 +1,28 @@
+{% set props = {
+  theme: 'default',
+  padding: 3
+}|merge(props) %}
+
+<section class="OSection -{{ props.theme }}">
+
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+
+  <hr>
+
+  <AButton type="button">
+    Parent's props: <code>theme: {{ props.theme }}</code>
+  </AButton>
+
+  <main>
+    {% block main %}{% endblock %}
+  </main>
+
+  {% if block('footer') is not empty %}
+    <hr>
+    <footer>
+      {% block footer %}{% endblock %}
+    </footer>
+  {% endif %}
+</section>

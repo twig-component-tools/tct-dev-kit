@@ -1,0 +1,3 @@
+[submodule "tct/tct-bundle"]
+	path = tct/tct-bundle
+	url = https://github.com/twig-component-tools/tct-bundle.git
