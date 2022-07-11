@@ -7,7 +7,7 @@
 {% block page %}
   <OSection>
     <block name="header">
-      <h1>Welcome to the TCT Dev Kit</h1>
+      <h1>Welcme to the TCT Dev Kit</h1>
     </block>
 
     <block name="main">
@@ -21,13 +21,35 @@
     </block>
   </OSection>
 
-  <OSection theme="dark" url="{{ url('home') }}">
+  <OSection theme="dark">
+    <block name="header">
+      <h2>Some DOM parsing character tests</h2>
+      <p><strong>The next two lines MUST be readable Umlauts and special chars:</strong></p>
+      <p>Ä ä Ö ö Ü ü ß é &</p>
+      <p>&Auml; &auml; &Ouml; &ouml; &Uuml; &uuml; &szlig; &eacute; &amp;</p>
+    </block>
+
+    <block name="main">
+      <p><strong>This button MUST correctly display the parents theme:</strong></p>
+      <AButton type="button">
+        Parent's props:
+        <code>theme: {{ props.theme }}</code>
+      </AButton>
+    </block>
+
+    <block name="footer">
+      <p><strong>This MUST be an image of a bird holding a stick (twig tools, get it?)</strong></p>
+      <img src="{{ 'tct' ~ '-' ~ 'logo' ~ (false ? '.png' : '.jpeg') }}" alt="">
+    </block>
+  </OSection>
+
+  <OSection>
     <block name="header">
       <h2>Nested Sections</h2>
     </block>
 
     <block name="main">
-      <OSection>
+      <OSection theme="dark">
         <block name="header">
           <h3>Level 1</h3>
         </block>

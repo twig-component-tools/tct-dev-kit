@@ -38,7 +38,7 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "dev-server": "UV_THREADPOOL_SIZE=100 encore dev-server --hot --https",
+    "dev-server": "UV_THREADPOOL_SIZE=100 encore dev-server --hot",
     "dev": "encore dev",
     "watch": "encore dev --watch",
     "build": "encore production"
