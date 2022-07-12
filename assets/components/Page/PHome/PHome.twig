@@ -10,6 +10,12 @@
       <h1>Welcme to the TCT Dev Kit</h1>
     </block>
 
+    {# <ANotFound sadbvaks/> #}
+
+    {#
+      <OThisDoesNotExist/>
+    #}
+
     <block name="main">
       Something outside of {% if true %} shit {% endif %}
       <p>This project contains an up to date symfony installation with a git submodule to develop the TCT Bundle.</p>
@@ -30,10 +36,11 @@
     </block>
 
     <block name="main">
-      <p><strong>This button MUST correctly display the parents theme:</strong></p>
+      <p><strong>The button above MUST correctly display the parents theme.</strong></p>
+      <p><strong>The button below MUST display 'undefined' instead.</strong></p>
       <AButton type="button">
         Parent's props:
-        <code>theme: {{ props.theme }}</code>
+        <code>theme: {{ props.theme|default('undefined') }}</code>
       </AButton>
     </block>
 

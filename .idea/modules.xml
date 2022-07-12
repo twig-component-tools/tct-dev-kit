@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/tct/tct-bundle/.idea/tct-bundle.iml" filepath="$PROJECT_DIR$/tct/tct-bundle/.idea/tct-bundle.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/tct-dev-kit.iml" filepath="$PROJECT_DIR$/.idea/tct-dev-kit.iml" />
     </modules>
   </component>
