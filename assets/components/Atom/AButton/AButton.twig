@@ -1,3 +1,6 @@
-<button type="{{ props.type|default('button') }}">
+<button
+  type="{{ props.type|default('button') }}"
+  {% if disabled %}disabled{% endif %}
+>
   {% block default %}{% endblock %}
 </button>
