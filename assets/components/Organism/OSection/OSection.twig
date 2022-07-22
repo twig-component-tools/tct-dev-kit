@@ -3,7 +3,7 @@
   padding: 3
 }|merge(props) %}
 
-<section class="OSection -{{ props.theme }}">
+<section class="OSection -{{ props.theme }} {% if props.nested %}-nested{% endif %}">
 
   <header>
     {% block header %}{% endblock %}

@@ -14,5 +14,10 @@
   &.-blue {
     background: #204040;
     color: #dedede;
+ }
+
+  &.-nested {
+    border: 3px solid green;
+    margin-top: 1rem;
   }
 }

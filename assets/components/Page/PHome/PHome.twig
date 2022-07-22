@@ -8,11 +8,13 @@
 {% block page %}
   <OSection>
     <block name="header">
-      <h1>Welcme to the TCT Dev Kit</h1>
+      <h1>Welcome to the TCT Dev Kit</h1>
 
       <div
         class="test-div"
-        {% if contentEditable %}contenteditable="true"{% endif %}
+        {% if contentEditable %}
+          contenteditable="true"
+        {% endif %}
       >
         This is editable
       </div>
@@ -62,6 +64,9 @@
         (false ? '.png' : '.jpeg') }}"
         alt=""
       >
+
+      <p>This should show only 3 numbers</p>
+      <MList items="{{ [1, 2, 3, 4, 5, 6]|filter(x => x > 3) }}"/>
     </block>
   </OSection>
 
@@ -71,7 +76,10 @@
     </block>
 
     <block name="main">
-      <OSection theme="dark">
+      <OSection
+        theme="dark"
+        nested
+      >
         <block name="header">
           <h3>Level 1</h3>
         </block>

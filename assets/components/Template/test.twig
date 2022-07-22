@@ -1,107 +1,137 @@
 {% extends '@components/Template/TBase/TBase.twig' %}
+{% set PHome62d13a0ee51c8 = props|default({}) %}
 
 {% set variable = 'YES' %}
-{% set contenteditable = true %}
+{% set contentEditable = true %}
 
 {% set deeplyNestedTest = 'This text comes from high above.' %}
 
 {% block page %}
   {% embed '@components/Organism/OSection/OSection.twig' with { props: {  } } %}
     {% block header %}
-      <h1>Welcme to the TCT Dev Kit</h1>
+      {% with { props: PHome62d13a0ee51c8 } %}
+        <h1>Welcme to the TCT Dev Kit</h1>
 
-      <div
-        class="test-div"
-        {% if contentEditable %}contenteditable="true"{% endif %}
-      >
-        This is editable
-      </div>
+        <div
+          class="test-div"
+          {% if contentEditable %}contenteditable="true"{% endif %}
+        >
+          This is editable
+        </div>
+      {% endwith %}
     {% endblock %}
 
-    {# <ANotFound sadbvaks/> #}
 
-    {#
-    {% include '@components/Organism/OThisDoesNotExist/OThisDoesNotExist.twig' with { props: {  } } %}
-    #}
+
+
 
     {% block main %}
-      Something outside of {% if true %} shit {% endif %}
-      <p>This project contains an up to date symfony installation with a git submodule to develop the TCT Bundle.</p>
-      <MSearchForm has-button/>
+      {% with { props: PHome62d13a0ee51c8 } %}
+        Something outside of {% if true %} shit {% endif %}
+        <p>This project contains an up to date symfony installation with a git submodule to develop the TCT Bundle.</p>
+        {% include '@components/Molecule/MSearchForm/MSearchForm.twig' with { props: { hasButton: 'true' } } %}
+      {% endwith %}
     {% endblock %}
 
     {% block footer %}
-      <a href="https://github.com/twig-component-tools">GitHub</a>
+      {% with { props: PHome62d13a0ee51c8 } %}
+        <a href="https://github.com/twig-component-tools">GitHub</a>
+      {% endwith %}
     {% endblock %}
   {% endembed %}
 
-  {% embed '@components/Organism/OSection/OSection.twig' with { props: { theme: 'dark' } } %}
+  {% embed '@components/Organism/OSection/OSection.twig' with { props: { theme: 'dark', title: 'something' } } %}
     {% block header %}
-      <h2>Some DOM parsing character tests</h2>
-      <p><strong>The next two lines MUST be readable Umlauts and special chars:</strong></p>
-      <p>Ä ä Ö ö Ü ü ß é &</p>
-      <p>&Auml; &auml; &Ouml; &ouml; &Uuml; &uuml; &szlig; &eacute; &amp;</p>
+      {% with { props: PHome62d13a0ee51c8 } %}
+        <h2>Some DOM parsing character tests</h2>
+        <p><strong>The next two lines MUST be readable Umlauts and special chars:</strong></p>
+        <p>Ä ä Ö ö Ü ü ß é &</p>
+        <p>&Auml; &auml; &Ouml; &ouml; &Uuml; &uuml; &szlig; &eacute; &amp;</p>
+      {% endwith %}
     {% endblock %}
 
     {% block main %}
-      <p><strong>The button above MUST correctly display the parents theme.</strong></p>
-      <p><strong>The button below MUST display 'undefined' instead.</strong></p>
-      {% embed '@components/Atom/AButton/AButton.twig' with { props: { type: 'button' } } %}
-        {% block default %}
+      {% with { props: PHome62d13a0ee51c8 } %}
+        <p><strong>The button above MUST correctly display the parents theme.</strong></p>
+        <p><strong>The button below MUST display 'undefined' instead.</strong></p>
+        {% embed '@components/Atom/AButton/AButton.twig' with { props: { type: 'button' } } %}
+          {% block default %}
+            {% with { props: PHome62d13a0ee51c8 } %}
+              Parent's props:
+              <code>theme: {{ props.theme|default('undefined') }}</code>
 
-        Parent's props:
-        <code>theme: {{ props.theme|default('undefined') }}</code>
-      {% endembed %}
+            {% endwith %}
+          {% endblock %}
+        {% endembed %}
+      {% endwith %}
     {% endblock %}
 
     {% block footer %}
-      <p><strong>This MUST be an image of a bird holding a stick (twig tools, get it?)</strong></p>
-      <img
-        src="{{ 'tct' ~ '-' ~ 'logo' ~
-        (false ? '.png' : '.jpeg') }}"
-        alt=""
-      >
+      {% with { props: PHome62d13a0ee51c8 } %}
+        <p><strong>This MUST be an image of a bird holding a stick (twig tools, get it?)</strong></p>
+        <img
+          src="{{ 'tct' ~ '-' ~ 'logo' ~
+          (false ? '.png' : '.jpeg') }}"
+          alt=""
+        >
+      {% endwith %}
     {% endblock %}
   {% endembed %}
 
   {% embed '@components/Organism/OSection/OSection.twig' with { props: {  } } %}
     {% block header %}
-      <h2>Nested Sections</h2>
+      {% with { props: PHome62d13a0ee51c8 } %}
+        <h2>Nested Sections</h2>
+      {% endwith %}
     {% endblock %}
 
     {% block main %}
-      {% embed '@components/Organism/OSection/OSection.twig' with { props: { theme: 'dark' } } %}
-        {% block header %}
-          <h3>Level 1</h3>
-        {% endblock %}
+      {% with { props: PHome62d13a0ee51c8 } %}
+        {% embed '@components/Organism/OSection/OSection.twig' with { props: { theme: 'dark' } } %}
+          {% block header %}
+            {% with { props: PHome62d13a0ee51c8 } %}
+              <h3>Level 1</h3>
+            {% endwith %}
+          {% endblock %}
 
-        {% block main %}
-          <p>This section is nested within another section.</p>
-          <p>{{ deeplyNestedTest }}</p>
-
-          {% embed '@components/Organism/OSection/OSection.twig' with { props: { theme: 'red' } } %}
-            {% block header %}
-              <h4>Level 2</h4>
-            {% endblock %}
-
-            {% block main %}
+          {% block main %}
+            {% with { props: PHome62d13a0ee51c8 } %}
               <p>This section is nested within another section.</p>
               <p>{{ deeplyNestedTest }}</p>
 
-              {% embed '@components/Organism/OSection/OSection.twig' with { props: { theme: 'blue' } } %}
+              {% embed '@components/Organism/OSection/OSection.twig' with { props: { theme: 'red' } } %}
                 {% block header %}
-                  <h5>Level 3</h5>
+                  {% with { props: PHome62d13a0ee51c8 } %}
+                    <h4>Level 2</h4>
+                  {% endwith %}
                 {% endblock %}
 
                 {% block main %}
-                  <p>This section is nested within another section.</p>
-                  <p>{{ deeplyNestedTest }}</p>
+                  {% with { props: PHome62d13a0ee51c8 } %}
+                    <p>This section is nested within another section.</p>
+                    <p>{{ deeplyNestedTest }}</p>
+
+                    {% embed '@components/Organism/OSection/OSection.twig' with { props: { theme: 'blue' } } %}
+                      {% block header %}
+                        {% with { props: PHome62d13a0ee51c8 } %}
+                          <h5>Level 3</h5>
+                        {% endwith %}
+                      {% endblock %}
+
+                      {% block main %}
+                        {% with { props: PHome62d13a0ee51c8 } %}
+                          <p>This section is nested within another section.</p>
+                          <p>{{ deeplyNestedTest }}</p>
+                        {% endwith %}
+                      {% endblock %}
+                    {% endembed %}
+                  {% endwith %}
                 {% endblock %}
               {% endembed %}
-            {% endblock %}
-          {% endembed %}
-        {% endblock %}
-      {% endembed %}
+            {% endwith %}
+          {% endblock %}
+        {% endembed %}
+      {% endwith %}
     {% endblock %}
   {% endembed %}
 {% endblock page %}
