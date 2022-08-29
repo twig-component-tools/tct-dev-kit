@@ -1,0 +1,5 @@
+{% set defaultBlock = block('THelpedHelper__default') is defined ? block('THelpedHelper__default') : null %}
+
+<THelper>
+  {{ defaultBlock|raw }}
+</THelper>
